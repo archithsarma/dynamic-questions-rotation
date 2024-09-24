@@ -155,39 +155,39 @@ A serverless architecture composed of the following AWS components:
 
   
 
--  **QUESTIONS Table**:
+   -  **QUESTIONS Table**:
 
   
 
--  **Schema**:
+    -  **Schema**:
 
   
 
--  `question_id` (String UUID) - Partition Key
+        -  `question_id` (String UUID) - Partition Key
 
-  
+        
 
--  `region` (String) - Sort Key
+        -  `region` (String) - Sort Key
 
-  
+        
 
--  `active` (Boolean)
+        -  `active` (Boolean)
 
-  
+        
 
--  `last_used_start_date` (String)
+        -  `last_used_start_date` (String)
 
-  
+        
 
--  `last_used_end_date` (String)
+        -  `last_used_end_date` (String)
 
-  
+        
 
--  `question_text` (String)
+        -  `question_text` (String)
 
-  
+        
 
--  `used` (Boolean)
+        -  `used` (Boolean)
 
   
 
@@ -258,30 +258,17 @@ A serverless architecture composed of the following AWS components:
 ### **1. Set Up Environment Variables**
 
   
-
-  
-
 Set the following environment variables:
 
-  
-
-  
 
 ```bash
 
-  
 
 export  AWS_REGION="your-aws-region"
 
-  
-
 export  ACCOUNT_ID="your-aws-account-id"
 
-  
-
 export  LAMBDA_ROLE_ARN="arn:aws:iam::your-account-id:role/your-lambda-execution-role"
-
-  
 
 export  SCHEDULE_LAMBDA_ARN="arn:aws:lambda:your-region:your-account-id:function:scheduleLambda"
 
@@ -289,21 +276,12 @@ export  SCHEDULE_LAMBDA_ARN="arn:aws:lambda:your-region:your-account-id:function
 
 ```
 
-  
-
-  
 
 ### **2. Create DynamoDB Tables**
 
-  
-
-  
 
 Run the `create_dynamodb_tables.sh` script to create the `QUESTIONS` and `REGIONS` tables.
-
-  
-
-  
+ 
 
 ```bash
 
@@ -315,22 +293,13 @@ sh  deploy/create_dynamodb_tables.sh
 
 ```
 
-  
-
-  
 
 ### **3. Deploy Lambda Functions**
 
   
-
-  
-
 Run the `deploy_lambdas.sh` script to package and deploy the Lambda functions.
 
   
-
-  
-
 ```bash
 
   
@@ -342,18 +311,11 @@ sh  deploy/deploy_lambdas.sh
 ```
 
   
-
-  
-
 ### **4. Configure EventBridge Schedule**
 
   
 
-  
-
 Run the `configure_eventbridge.sh` script to set up the initial cron schedule.
-
-  
 
   
 
@@ -368,18 +330,10 @@ sh  deploy/configure_eventbridge.sh
 ```
 
   
-
-  
-
 ### **5. Set Up API Gateway**
 
   
-
-  
-
 Create API Gateway endpoints to trigger the `getQuestion` and `configureSchedule` Lambdas.
-
-  
 
   
 
@@ -410,26 +364,16 @@ Create API Gateway endpoints to trigger the `getQuestion` and `configureSchedule
   
 
 ---
-
-  
-
   
 
 ## **Sample API Requests**
 
   
-
-  
-
 ### **Retrieve a Question**
 
-  
-
-  
+    
 
 **Request**:
-
-  
 
   
 
@@ -467,9 +411,6 @@ To test, use the endpoint - https://vst3sgrho7.execute-api.ap-south-1.amazonaws.
 
 **Response**:
 
-  
-
-  
 
 ```json
 
@@ -492,8 +433,7 @@ To test, use the endpoint - https://vst3sgrho7.execute-api.ap-south-1.amazonaws.
   
 
 }
-
-  
+ 
 
 ```
 
@@ -503,8 +443,6 @@ To test, use the endpoint - https://vst3sgrho7.execute-api.ap-south-1.amazonaws.
 
 
 **Request**:
-
-  
 
   
 
@@ -540,9 +478,7 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
 **Response**:
 
-  
-
-  
+   
 
 ```json
 
@@ -558,14 +494,8 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
 ```
 
-  
-
-  
 
 ---
-
-  
-  
 
   
 
@@ -573,13 +503,8 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
   
 
-  
-
 ### **Scalability**
 
-  
-
-  
 
 -  **Serverless Architecture**: Leveraging AWS Lambda and EventBridge ensures automatic scaling to handle high traffic volumes without manual intervention.
 
@@ -591,16 +516,12 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
 -  **In-Memory Caching in Lambda**: Provides ultra-fast access for frequently requested data during the lifespan of the Lambda execution environment.
 
-  
 
   
 
 ### **Performance Optimization**
 
   
-
-  
-
 -  **Event-Driven Design**: Decouples components and allows independent scaling.
 
   
@@ -613,12 +534,7 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
   
 
-  
-
 ### **Flexibility**
-
-  
-
   
 
 -  **Dynamic Scheduling**: The `configureSchedule Lambda` allows administrators to adjust the rotation schedule in real-time.
@@ -629,20 +545,12 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
   
 
-  
-
 ---
 
-  
-
-  
 
 ## **Pros and Cons**
 
   
-
-  
-
 ### **Pros**
 
   
@@ -693,8 +601,6 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
   
 
-  
-
 ## **Potential Improvements**
 
   
@@ -718,12 +624,7 @@ All API calls with the said architecture have been **deployed and tested on AWS*
 
   
 
-  
-
 ## **Conclusion**
 
   
-
-  
-
 The architecture leverages AWS managed services to handle high volumes of traffic, minimize latency, and allow dynamic configuration, ensuring an optimal experience for both users and administrators
