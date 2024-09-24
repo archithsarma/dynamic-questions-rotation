@@ -91,11 +91,11 @@ A serverless architecture composed of the following AWS components:
 
 
 - **Scalability Considerations**:
-    This function is lightweight and runs infrequently (once per week or per configured schedule). It only fetches new questions for each region and updates the Redis cache, keeping the interaction between services minimal.
+    - This function is lightweight and runs infrequently (once per week or per configured schedule). It only fetches new questions for each region and updates the Redis cache, keeping the interaction between services minimal.
 
-    Redis ensures low-latency question retrieval, making the system responsive even under high user load.
+    - Redis ensures low-latency question retrieval, making the system responsive even under high user load.
 
-    The AWS EventBridge scheduler is highly scalable and can trigger thousands of functions concurrently.
+    - The AWS EventBridge scheduler is highly scalable and can trigger thousands of functions concurrently.
 
   
 
@@ -125,11 +125,11 @@ A serverless architecture composed of the following AWS components:
 
 - **Scalability Considerations**:
 
-    The in-memory cache allows extremely fast access to questions for frequent API requests.
+    - The in-memory cache allows extremely fast access to questions for frequent API requests.
 
-    Redis ElastiCache is designed to handle millions of requests with low-latency responses, ensuring scalability for global users. It can scale horizontally, adding more nodes as traffic grows.
+    - Redis ElastiCache is designed to handle millions of requests with low-latency responses, ensuring scalability for global users. It can scale horizontally, adding more nodes as traffic grows.
 
-    Lambda is stateless and can scale automatically based on user requests. AWS Lambda can handle tens of thousands of concurrent requests, making it suitable for a high DAU (100k daily users) and beyond.
+   -  Lambda is stateless and can scale automatically based on user requests. AWS Lambda can handle tens of thousands of concurrent requests, making it suitable for a high DAU (100k daily users) and beyond.
 
   
 
@@ -154,9 +154,9 @@ A serverless architecture composed of the following AWS components:
 
 - **Scalability Considerations**:
 
-    This function is invoked only when an administrator changes the schedule, which is an infrequent event.
+    - This function is invoked only when an administrator changes the schedule, which is an infrequent event.
 
-    Updating EventBridge rules is a lightweight operation and scales seamlessly.
+    - Updating EventBridge rules is a lightweight operation and scales seamlessly.
 
   
 
