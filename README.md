@@ -395,33 +395,14 @@ Create API Gateway endpoints to trigger the `getQuestion` and `configureSchedule
 ```bash
 
   
-
-curl  --location  --request  GET  'https://api-endpoint/getQuestion'  \
-
-  
-
---header  'Content-Type: application/json'  \
-
-  
-
---data  '{
-
-  
-
-"region": "SG"
-
-  
-
-}'
-
+curl --location 'https://vst3sgrho7.execute-api.ap-south-1.amazonaws.com/test/getQuestion?region='
   
 
 ```
 
   
 
-To test, use the endpoint - https://vst3sgrho7.execute-api.ap-south-1.amazonaws.com/test/getQuestion
-
+To test, use the endpoint - https://vst3sgrho7.execute-api.ap-south-1.amazonaws.com/test/getQuestion?region=SG or region=US
   
 
 **Response**:
@@ -627,7 +608,7 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
 ## **API Response Times**
 
-All API calls with the said architecture have been **deployed and tested on AWS**, and the response times for both the `getQuestion` and `configureSchedule` APIs have consistently been **in the range of ~100  ms**, ensuring optimal performance and low latency for users globally.  
+All API calls with the said architecture have been **deployed and tested on AWS**, and the response times for both the `getQuestion` and `configureSchedule` APIs have consistently been **under 100  ms, GET method optimised enough ~ 45ms**, ensuring optimal performance and low latency for users globally.  
   
 
 ---
