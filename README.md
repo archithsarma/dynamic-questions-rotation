@@ -83,11 +83,11 @@ A serverless architecture composed of the following AWS components:
 
   
 
-- Fetches new questions from DynamoDB tables (`QUESTIONS`).
+   Fetches new questions from DynamoDB tables (`QUESTIONS`).
 
   
 
-- Updates the Redis cache with the latest questions for each region.
+   Updates the Redis cache with the latest questions for each region.
 
   
 
@@ -109,11 +109,11 @@ A serverless architecture composed of the following AWS components:
 
   
 
-- Checks an in-memory cache for the question for the fastest response
+   Checks an in-memory cache for the question for the fastest response
 
   
 
-- If not found, queries the Redis cache. DynamoDB is in't checked because we are already storing question related of the current cycle in the cache. The database is having globasl
+   If not found, queries the Redis cache. DynamoDB is in't checked because we are already storing question related of the current cycle in the cache. The database is having globasl
 
   
 
@@ -135,11 +135,11 @@ A serverless architecture composed of the following AWS components:
 
   
 
-- Receives a new cron expression as input.
+    Receives a new cron expression as input.
 
   
 
-- Updates the AWS EventBridge rule with the new schedule.
+    Updates the AWS EventBridge rule with the new schedule.
 
   
 
@@ -197,7 +197,7 @@ A serverless architecture composed of the following AWS components:
 
   
 
-- Stores the current question for each region using the key format `question_<region>` {ex : question_SG}.
+  stores the current question for each region using the key format `question_<region>` {ex : question_SG}.
 
   
 
@@ -213,11 +213,11 @@ A serverless architecture composed of the following AWS components:
 
   
 
-- Manages the cron schedule that triggers the `schedule Lambda`.
+  Manages the cron schedule that triggers the `schedule Lambda`.
 
   
 
-- The schedule can be dynamically updated via the `configureSchedule Lambda`.
+  The schedule can be dynamically updated via the `configureSchedule Lambda`.
 
   
 
