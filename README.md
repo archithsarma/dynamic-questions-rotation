@@ -510,11 +510,11 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
   
 
--  **Caching with Redis**: Reduces the load on DynamoDB by serving frequent requests from an in-memory cache, enabling the system to handle millions of users efficiently.
+-  **Caching with Redis**: Reduces the load on DynamoDB by serving frequent requests from an redis cache, enabling the system to handle millions of users efficiently with minimal latency
 
   
 
--  **In-Memory Caching in Lambda**: Provides ultra-fast access for frequently requested data during the lifespan of the Lambda execution environment.
+-  **In-Memory Caching in Lambda**: Provides ultra-fast access for frequently requested data during the lifespan of the Lambda execution environment. Used oin conjuction with redis
 
 
   
@@ -537,9 +537,8 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 ### **Flexibility**
   
 
--  **Dynamic Scheduling**: The `configureSchedule Lambda` allows administrators to adjust the rotation schedule in real-time.
+-  **Dynamic Scheduling**: The `configureSchedule Lambda` allows administrators to adjust the rotation schedule in real-time without the need of any code redployment.
 
-  
 
 -  **Modular Components**: Each Lambda function has a single responsibility, simplifying maintenance and potential future enhancements.
 
@@ -609,8 +608,6 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
 1.  **Implement Monitoring and Alerts**: Utilize AWS CloudWatch for monitoring Lambda performance and setting up alerts.
 
-  
-
 2.  **Use Provisioned Concurrency**: Reduce cold starts by enabling provisioned concurrency for Lambdas.
 
 ## **API Response Times**
@@ -618,10 +615,7 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 All API calls with the said architecture have been **deployed and tested on AWS**, and the response times for both the `getQuestion` and `configureSchedule` APIs have consistently been **in the range of ~100  ms**, ensuring optimal performance and low latency for users globally.  
   
 
-  
-
 ---
-
   
 
 ## **Conclusion**
