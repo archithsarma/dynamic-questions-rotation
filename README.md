@@ -83,11 +83,11 @@ A serverless architecture composed of the following AWS components:
 
   
 
-   Fetches new questions from DynamoDB tables (`QUESTIONS`).
+   - Fetches new questions from DynamoDB tables (`QUESTIONS`).
 
   
 
-   Updates the Redis cache with the latest questions for each region.
+   - Updates the Redis cache with the latest questions for each region.
 
 
 - **Scalability Considerations**:
@@ -117,11 +117,11 @@ A serverless architecture composed of the following AWS components:
 
   
 
-   Checks an in-memory cache for the question for the fastest response
+   - Checks an in-memory cache for the question for the fastest response
 
   
 
-   If not found, queries the Redis cache. DynamoDB isn't checked because we are already storing question of the current cycle in the cache. So assuming no need to query it from DB as everything will be stored in the cache during question rotation (since questions are same for suers in the same region).
+   - If not found, queries the Redis cache. DynamoDB isn't checked because we are already storing question of the current cycle in the cache. So assuming no need to query it from DB as everything will be stored in the cache during question rotation (since questions are same for suers in the same region).
 
 - **Scalability Considerations**:
 
@@ -148,9 +148,9 @@ A serverless architecture composed of the following AWS components:
 -  **Process**:
 
 
-    Receives a new cron expression as input.
+    - Receives a new cron expression as input.
 
-    Updates the AWS EventBridge rule with the new schedule.
+    - Updates the AWS EventBridge rule with the new schedule.
 
 - **Scalability Considerations**:
 
