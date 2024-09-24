@@ -163,11 +163,11 @@ A serverless architecture composed of the following AWS components:
 
   
 
-        -  `question_id` (String UUID) - Partition Key
+        -  `question_id` (String UUID) - Sort Key
 
         
 
-        -  `region` (String) - Sort Key
+        -  `region` (String) - Partition Key
 
         
 
