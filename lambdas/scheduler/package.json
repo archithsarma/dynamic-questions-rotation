@@ -1,0 +1,14 @@
+{
+    "name": "schedule-lambda",
+    "version": "1.0.0",
+    "description": "Lambda function to rotate questions and set Redis cache",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "author": "Archith Sarma",
+    "dependencies": {
+      "redis": "^4.0.0"
+    }
+  }
+  

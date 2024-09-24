@@ -1,0 +1,14 @@
+{
+    "name": "getquestion-lambda",
+    "version": "1.0.0",
+    "description": "Lambda function to retrieve questions from in-memory and Redis cache",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "author": "Archith Sarma",
+    "dependencies": {
+     
+    }
+  }
+  
