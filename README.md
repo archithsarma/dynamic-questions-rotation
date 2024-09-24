@@ -113,7 +113,7 @@ A serverless architecture composed of the following AWS components:
 
   
 
-   If not found, queries the Redis cache. DynamoDB is in't checked because we are already storing question related of the current cycle in the cache. The database is having globasl
+   If not found, queries the Redis cache. DynamoDB isn't checked because we are already storing question of the current cycle in the cache. So assuming no need to query it from DB as everything will be stored in the cache during question rotation (since questions are same for suers in the same region).
 
   
 
