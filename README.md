@@ -499,13 +499,8 @@ To test, use the endpoint - https://vst3sgrho7.execute-api.ap-south-1.amazonaws.
 
   
 
-  
-
 ### **Configure the Cron Schedule**
 
-  
-
-  
 
 **Request**:
 
@@ -551,8 +546,6 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
 
 ```json
 
-  
-
 {
 
   
@@ -562,8 +555,6 @@ To test, use the endpoint - https://uhn5tboewf.execute-api.ap-south-1.amazonaws.
   
 
 }
-
-  
 
 ```
 
@@ -735,4 +726,4 @@ All API calls with the said architecture have been **deployed and tested on AWS*
 
   
 
-The architecture leverages AWS managed services to handle high volumes of traffic, minimize latency, and allow dynamic configuration, ensuring an optimal experience for both users and administrators.a
+The architecture leverages AWS managed services to handle high volumes of traffic, minimize latency, and allow dynamic configuration, ensuring an optimal experience for both users and administrators
